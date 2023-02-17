@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Update_Room";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Index</title>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div ng-app="Homeapp" ng-controller="RoomController" data-ng-init="loadrecord(@Convert.ToInt32(Request.QueryString["id"]))">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="form-group">
+
+                        <label>RoomNumber</label>
+
+                        <input type="text" ng-model="Room.RoomNumber" class="form-control" />
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>RoomPrice</label>
+
+                        <input type="text" ng-model="Room.RoomPrice" class="form-control" />
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>RoomType</label>
+
+                        <input type="text" ng-model="Room.RoomType" class="form-control" />
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>RoomCapacity</label>
+
+                        <input type="text" ng-model="Room.RoomCapacity" class="form-control" />
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>RoomDescription</label>
+
+                        <input type="text" ng-model="Room.RoomDescription" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+
+                        <label>IsActive</label>
+
+                        <input type="text" ng-model="Room.IsActive" class="form-control" />
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="button" class="btn btn-primary" ng-click="updateData()" value="{{btnText}}" />
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-2"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/AngularController/RoomAngular.js"></script>
+</body>
+
+</html>
+
+

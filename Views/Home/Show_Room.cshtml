@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Show_Room";
+}
+
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Show All Room</title>
+
+    <style>
+        .tableData {
+            border-left: solid 1px #D8C3C3;
+            border-top: solid 1px #D8C3C3;
+        }
+
+            .tableData tr {
+            }
+
+            .tableData td, .tableData th {
+                border-right: solid 1px #D8C3C3;
+                border-bottom: solid 1px #D8C3C3;
+                text-align: left;
+                padding: 5px;
+            }
+
+            .tableData td {
+            }
+
+            .tableData th {
+                background-color: #FAFAFA;
+                padding: 7px 5px;
+                border-bottom-color: #9C9C9C;
+            }
+
+        .odd {
+            background-color: #f3f3f3;
+        }
+
+        .even {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+
+<body ng-app="Homeapp">
+
+    <div ng-controller="RoomController">
+
+        <table class="tableData">
+
+            <tr>
+                <th>Room Id</th>
+
+                <th>RoomNumber</th>
+
+                <th>RoomPrice</th>
+
+                <th>RoomType</th>
+
+                <th>RoomCapacity</th>
+
+                <th>RoomDescription</th>
+
+                <th>IsActive</th>
+
+                <th>Actions</th>
+            </tr>
+
+            <tr ng-repeat="e in Room" ng-class-even="'even'" ng-class-odd="'odd'">
+                <td>{{e.RoomId}}</td>
+
+                <td>{{e.RoomNumber}}</td>
+
+                <td>{{e.RoomPrice}}</td>
+
+                <td>{{e.RoomType}}</td>
+
+                <td>{{e.RoomCapacity}}</td>
+
+                <td>{{e.RoomDescription}}</td>
+
+                <td>{{e.IsActive}}</td>
+
+                <td><a href="/Home/Update_Room?id={{e.RoomId}}">Update</a></td>
+
+                <td><a ng-click="deleterecord(e.RoomId)">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/AngularController/RoomAngular.js"></script>
+
+</body>
+
+</html>

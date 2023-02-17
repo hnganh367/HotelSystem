@@ -1,0 +1,65 @@
+﻿@model IEnumerable<HotelBusinessLayer.Room>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomCapacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    using (Html.BeginForm("Delete","Room", new {id = item.RoomId}))
+    { 
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomCapacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RoomId }) |
+            <input type="submit" value="Delete" 
+                   onclick="return confirm('Are you sure you want to delete this record with ID = @item.RoomId'); "/>
+        </td>
+    </tr>
+}
+}
+</table>
